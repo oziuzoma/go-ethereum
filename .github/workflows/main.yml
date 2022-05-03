@@ -29,3 +29,11 @@ jobs:
           REMOTE_HOST: ${{ secrets.DNS_NAME }}
           REMOTE_USER: ${{ secrets.USERNAME }}
           TARGET: ${{ secrets.TARGET_DIR }}
+          
+      #Assuming dependencies are installed
+      - name: Building geth
+        run: |
+          cd ${{ secrets.TARGET_DIR }}
+          make all
+          make geth
+          ./build/bin/geth
