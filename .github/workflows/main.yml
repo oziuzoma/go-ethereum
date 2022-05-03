@@ -31,9 +31,10 @@ jobs:
           TARGET: ${{ secrets.TARGET_DIR }}
           
       #Assuming dependencies are installed
-      - name: Building geth
+      - name: Building geth 
         run: |
           cd ${{ secrets.TARGET_DIR }}
           make all
           make geth
           ./build/bin/geth
+        shell: bash
